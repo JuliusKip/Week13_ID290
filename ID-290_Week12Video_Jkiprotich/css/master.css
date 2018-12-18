@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+  *,
+  *::before,
+  *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+body {
+  height: auto;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+}

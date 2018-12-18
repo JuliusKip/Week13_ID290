@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/master.css">
+  </head>
+  <body>
+<div class="mdl-spinner mdl-js-spinner is-active"></div>
+
+<div v-bind:title="words" id="tunesApp">
+  <h1>{{ siteTitle }}</h1>
+
+  <input type="text" name="" v-model="searchTerm">
+  <input type="number" v-model="limit">
+  <select v-model="entity">
+    <option value="song"> Songs</option>
+    <option value="musicVideo"> Videos</option>
+  </select>
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" v-on:click="getMusic()"> Search </button>
+  <h2>{{ searchTerm }}</h2>
+
+  <button v-on:click="songsVisible = !songsVisible"> See Songs</button>
+  <ul v-if="songsVisible">
+    <li v-for="song in songsArray">Song Name is {{ song }}</li>
+  </ul>
+
+  <div v-for="song in songList">
+    <h1>{{ song.trackName }}</h1>
+    <img v-if="song.artworkUrl100" v-bind:src="song.artworkUrl100">
+    <h4>{{ song.artistName }}</h4>
+    <audio v-if="song.previewUrl || song.previewUrl != '' || song.entity != null" controls>
+      <source v-bind:src="song.previewUrl">
+    </audio>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+ </body>
+</html>
